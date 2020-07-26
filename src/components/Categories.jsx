@@ -13,14 +13,15 @@ const Categories = ({ items, onClick }) => {
         <li onClick={() => onSelectItem(null)} className={activeItem === null ? 'active' : ''}>
           All
         </li>
-        {items.map((item, index) => (
-          <li
-            className={activeItem === index ? 'active' : ''}
-            onClick={() => onSelectItem(index)}
-            key={index}>
-            {item}
-          </li>
-        ))}
+        {items &&
+          items.map((item, index) => (
+            <li
+              className={activeItem === index ? 'active' : ''}
+              onClick={() => onSelectItem(index)}
+              key={index}>
+              {item}
+            </li>
+          ))}
       </ul>
     </div>
   );
