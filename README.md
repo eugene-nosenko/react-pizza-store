@@ -1,11 +1,11 @@
 ### Update to React 17 and Webpack 5
 
-````bash
+```bash
 nvm list
 yarn upgrade-interactive --latest
 yarn add webpack@next
 npm rebuild node-sass
-```.
+```
 
 ## Redux
 
@@ -16,12 +16,12 @@ https://github.com/rajdee/redux-in-russian
 https://redux.js.org/tutorials/fundamentals/part-5-ui-react#passing-the-store-with-provider
 
 ```js
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import App from './App'
-import store from './store'
+import App from './App';
+import store from './store';
 
 ReactDOM.render(
   // Render a `<Provider>` around the entire `<App>`,
@@ -32,8 +32,8 @@ ReactDOM.render(
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
-)
-````
+);
+```
 
 ### Redux Hooks
 
