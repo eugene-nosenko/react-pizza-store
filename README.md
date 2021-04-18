@@ -1,9 +1,12 @@
 ### Update to React 17 and Webpack 5
 
+````bash
 nvm list
 yarn upgrade-interactive --latest
 yarn add webpack@next
 npm rebuild node-sass
+```.
+
 ## Redux
 
 https://github.com/rajdee/redux-in-russian
@@ -30,9 +33,10 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
-```
+````
 
 ### Redux Hooks
+
 https://react-redux.js.org/api/hooks
 
 ### Redux DevTools
@@ -40,18 +44,20 @@ https://react-redux.js.org/api/hooks
 https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd
 https://github.com/reduxjs/redux-devtools
 
+```bash
 yarn remove @testing-library/jest-dom @testing-library/react @testing-library/user-event
 yarn add -D @testing-library/jest-dom @testing-library/react @testing-library/user-event
 
 yarn add -D eslint
 ./node_modules/.bin/eslint --init
-
-eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node
+```
 
 ### Pizzas
 
+```
 https://dominos.ua/uk/odessa/
 https://www.dominos.com.au/menu
 https://tonyvespa.co.il/
 https://papajohns.co.il/
 https://www.papajohns.es/
+```
