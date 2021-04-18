@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 
-const Categories = ({ items, onClick }) => {
+const Categories = React.memo(function Categories({ items, onClickItem }) {
   const [activeItem, setActiveItem] = useState(null);
 
   const onSelectItem = (index) => {
     setActiveItem(index);
+    onClickItem(index);
   };
 
   return (
-    <div className='categories'>
+    <div className="categories">
       <ul>
         <li onClick={() => onSelectItem(null)} className={activeItem === null ? 'active' : ''}>
           All
@@ -18,13 +19,14 @@ const Categories = ({ items, onClick }) => {
             <li
               className={activeItem === index ? 'active' : ''}
               onClick={() => onSelectItem(index)}
-              key={index}>
+              key={index}
+            >
               {item}
             </li>
           ))}
       </ul>
     </div>
   );
-};
+});
 
 export default Categories;

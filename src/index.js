@@ -7,6 +7,10 @@ import store from "./redux/store";
 import "./scss/app.scss";
 import App from "./App";
 
+// store.subscribe(() => {
+//   console.log('store changed', store.getState())
+// })
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
