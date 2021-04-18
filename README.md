@@ -52,6 +52,14 @@ yarn add -D eslint
 ./node_modules/.bin/eslint --init
 ```
 
+### JSON Server Hooks
+
+https://github.com/typicode/json-server
+yarn add -D json-server
+
+npx json-server --watch public/db.json
+http://localhost:3000/pizzas?\_order=desc&\_sort=price
+
 ### Pizzas
 
 ```
