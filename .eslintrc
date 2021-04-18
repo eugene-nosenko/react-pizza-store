@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier/prettier"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -13,16 +13,16 @@
   },
   "plugins": ["react"],
   "rules": {
-    "max-statements": ["error", 8],
-    "max-depth": ["error", 4],
-    "max-params": ["error", 3],
+    "max-statements": ["warn", 10],
+    "max-depth": ["warn", 4],
+    "max-params": ["warn", 3],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "warn",
     "react/display-name": "warn",
     "max-len": [
-      2,
+      "warn",
       {
-        "code": 10,
+        "code": 120,
         "ignoreUrls": true,
         "ignoreComments": true
       }
@@ -30,7 +30,6 @@
     "linebreak-style": 0,
     "no-console": "warn",
     "no-unused-vars": "warn",
-    "printWidth": 100,
     "indent": ["error", 2]
   }
 }
