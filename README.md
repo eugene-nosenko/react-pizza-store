@@ -1,4 +1,15 @@
-### Update to React 17 and Webpack 5
+## How to start
+
+```bash
+yarn start
+yarn server
+```
+
+## Netlify
+
+https://react-pizza-store.netlify.app/
+
+## Update to React 17 and Webpack 5
 
 ```bash
 nvm list
