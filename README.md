@@ -1,4 +1,15 @@
-### Update to React 17 and Webpack 5
+## How to start
+
+```bash
+yarn start
+yarn server
+```
+
+## Netlify
+
+https://react-pizza-store.netlify.app/
+
+## Update to React 17 and Webpack 5
 
 ```bash
 nvm list
@@ -51,6 +62,14 @@ yarn add -D @testing-library/jest-dom @testing-library/react @testing-library/us
 yarn add -D eslint
 ./node_modules/.bin/eslint --init
 ```
+
+### JSON Server Hooks
+
+https://github.com/typicode/json-server
+yarn add -D json-server
+
+npx json-server --watch public/db.json
+http://localhost:3000/pizzas?\_order=desc&\_sort=price
 
 ### Pizzas
 
