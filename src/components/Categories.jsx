@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { map } from 'lodash';
 
 const Categories = React.memo(function Categories({ activeCategory, items, onClickCategory }) {
   return (
@@ -12,7 +13,7 @@ const Categories = React.memo(function Categories({ activeCategory, items, onCli
           All
         </li>
         {items &&
-          items.map((item, index) => (
+          map(items, (item, index) => (
             <li
               className={activeCategory === index ? 'active' : ''}
               onClick={() => onClickCategory(index)}
