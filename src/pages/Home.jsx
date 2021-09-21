@@ -1,8 +1,10 @@
 /* eslint-disable indent */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Categories, PizzaLoadingBlock, SortPopup } from '../components';
-import PizzaBlock from '../components/PizzaBlock';
+import { map } from 'lodash';
+
+import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock } from '../components';
+
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
 
@@ -13,12 +15,12 @@ const sortItems = [
   { name: 'alphabet', type: 'name', order: 'asc' }
 ];
 
-const Home = () => {
+function Home() {
   const dispatch = useDispatch();
   const items = useSelector(({ pizzas }) => pizzas.items);
+  const cartItems = useSelector(({ cart }) => cart.items);
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoaded);
-  const category = useSelector(({ filters }) => filters.category);
-  const sortBy = useSelector(({ filters }) => filters.sortBy);
+  const { category, sortBy } = useSelector(({ filters }) => filters);
 
   React.useEffect(() => {
     dispatch(fetchPizzas(sortBy, category));
@@ -31,6 +33,13 @@ const Home = () => {
   const onSelectSortType = React.useCallback((type) => {
     dispatch(setSortBy(type));
   }, []);
+
+  const handleAddPizzaToCart = (obj) => {
+    dispatch({
+      type: 'ADD_PIZZA_CART',
+      payload: obj
+    });
+  };
 
   return (
     <div className="container">
@@ -49,13 +58,20 @@ const Home = () => {
       <h2 className="content__title">Pizzas</h2>
       <div className="content__items">
         {isLoaded
-          ? items.map((obj) => <PizzaBlock key={obj.id} {...obj} />)
+          ? map(items, (obj) => (
+              <PizzaBlock
+                onClickAddPizza={handleAddPizzaToCart}
+                key={obj.id}
+                addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
+                {...obj}
+              />
+            ))
           : Array(12)
               .fill(0)
               .map((_, index) => <PizzaLoadingBlock key={index} />)}
       </div>
     </div>
   );
-};
+}
 
 export default Home;

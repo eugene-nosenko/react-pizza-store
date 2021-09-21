@@ -24,5 +24,5 @@ const maxSequence = (arr) => {
   return seq_arr;
 };
 
-console.log(maxSequence(arr));
+// console.log(maxSequence(arr));
 // document.write(maxSequence(arr));

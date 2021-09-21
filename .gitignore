@@ -23,8 +23,9 @@ firebase.json
 .env.test.local
 .env.production.local
 .code-workspace
-yarn.lock
 
+yarn.lock
+yarn.lock*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

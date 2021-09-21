@@ -1,6 +1,6 @@
 {
   "short_name": "React App",
-  "name": "Create React App Sample",
+  "name": "React Pizza Place",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,14 +8,14 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "pizza-icon-100.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "100x100"
     },
     {
-      "src": "logo512.png",
+      "src": "pizza-icon-474.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "474x474"
     }
   ],
   "start_url": ".",
