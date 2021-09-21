@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { map } from 'lodash';
 
 import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock } from '../components';
 
@@ -57,7 +58,7 @@ function Home() {
       <h2 className="content__title">Pizzas</h2>
       <div className="content__items">
         {isLoaded
-          ? items.map((obj) => (
+          ? map(items, (obj) => (
               <PizzaBlock
                 onClickAddPizza={handleAddPizzaToCart}
                 key={obj.id}
