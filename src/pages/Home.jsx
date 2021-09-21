@@ -1,11 +1,11 @@
 /* eslint-disable indent */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Categories, PizzaLoadingBlock, SortPopup } from '../components';
-import PizzaBlock from '../components/PizzaBlock';
+
+import { Categories, SortPopup, PizzaBlock, PizzaLoadingBlock } from '../components';
+
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
-import { addPizzaToCart } from '../redux/actions/cart';
 
 const categoryNames = ['Meat', 'Vegetarian', 'Grill', 'Spicy', 'Calzone'];
 const sortItems = [
@@ -14,7 +14,7 @@ const sortItems = [
   { name: 'alphabet', type: 'name', order: 'asc' }
 ];
 
-const Home = () => {
+function Home() {
   const dispatch = useDispatch();
   const items = useSelector(({ pizzas }) => pizzas.items);
   const cartItems = useSelector(({ cart }) => cart.items);
@@ -33,8 +33,11 @@ const Home = () => {
     dispatch(setSortBy(type));
   }, []);
 
-  const handleAddPizzaToCard = (obj) => {
-    dispatch(addPizzaToCart(obj));
+  const handleAddPizzaToCart = (obj) => {
+    dispatch({
+      type: 'ADD_PIZZA_CART',
+      payload: obj
+    });
   };
 
   return (
@@ -56,7 +59,7 @@ const Home = () => {
         {isLoaded
           ? items.map((obj) => (
               <PizzaBlock
-                onClickAddPizza={handleAddPizzaToCard}
+                onClickAddPizza={handleAddPizzaToCart}
                 key={obj.id}
                 addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
                 {...obj}
@@ -68,6 +71,6 @@ const Home = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Home;
