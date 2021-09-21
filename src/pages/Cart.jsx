@@ -11,7 +11,7 @@ function Cart() {
   const dispatch = useDispatch();
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
 
-  const addedPizzas = Object.keys(items).map((key) => {
+  const addedPizzas = map(Object.keys(items), (key) => {
     return items[key].items[0];
   });
 
