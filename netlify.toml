@@ -1,7 +1,7 @@
 
 # https://docs.netlify.com/configure-builds/file-based-configuration
 [build]
-  publish = "./build"
+  publish = "./public"
   command = "yarn build"
 
 [context.production]
@@ -14,13 +14,20 @@
   environment = {REACT_APP_API_URL = "https://react-pizza-store.netlify.app/" }
 
 [[redirects]]
+  from = "/"
+  to = "/db.json"
+  status = 302
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = false
 
-[[headers]]
 # Define which paths this specific [[headers]] block will cover.
-for = "/"
-[headers.values]
-Access-Control-Allow-Origin = "*"
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "*"
+    Access-Control-Allow-Headers = "*"
