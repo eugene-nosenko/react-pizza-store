@@ -35,7 +35,7 @@ function Cart() {
   };
 
   const onClickOrder = () => {
-    console.log('ВАШ ЗАКАЗ', items);
+    // console.log('Your order', items);
   };
 
   return (
