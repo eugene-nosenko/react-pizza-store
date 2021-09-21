@@ -2,6 +2,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { map } from 'lodash';
 import cartEmptyImage from '../assets/img/empty-cart.png';
 import { CartItem, Button } from '../components';
 import { clearCart, removeCartItem, plusCartItem, minusCartItem } from '../redux/actions/cart';
@@ -118,7 +119,7 @@ function Cart() {
               </div>
             </div>
             <div className="content__items">
-              {addedPizzas.map((obj) => (
+              {map(addedPizzas, (obj) => (
                 <CartItem
                   id={obj.id}
                   key={obj.id}

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { map } from 'lodash';
 import Button from '../Button';
 
 function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount }) {
@@ -35,7 +36,7 @@ function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, 
       <h4 className="pizza-block__title">{name}</h4>
       <div className="pizza-block__selector">
         <ul>
-          {availableTypes.map((type, index) => (
+          {map(availableTypes, (type, index) => (
             <li
               key={type}
               onClick={() => onSelectType(index)}
@@ -49,7 +50,7 @@ function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, 
           ))}
         </ul>
         <ul>
-          {availableSizes.map((size, index) => (
+          {map(availableSizes, (size, index) => (
             <li
               key={size}
               onClick={() => onSelectSize(index)}
